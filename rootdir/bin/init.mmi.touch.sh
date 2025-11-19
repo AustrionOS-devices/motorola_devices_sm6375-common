@@ -187,10 +187,11 @@ wait_for_poweron()
 setup_permissions()
 {
 	local bootmode=$(getprop $bootmode_property 2> /dev/null)
+	local selinux=$(getprop ro.boot.selinux 2> /dev/null)
 	local key_path
 	local key_files
 	local entry
-	if [ "$bootmode" == "mot-factory" ]; then
+	if [[ ("$selinux" == "permissive") || ("$bootmode" == "mot-factory") ]]; then
 		debug "loosen permissions to $touch_vendor files"
 		case $touch_vendor in
 			  samsung)	key_path="/sys/devices/virtual/sec/sec_ts/"
