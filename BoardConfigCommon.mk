@@ -49,6 +49,9 @@ TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/motorola/sm6375
 TARGET_KERNEL_CONFIG := vendor/holi-qgki_defconfig vendor/debugfs.config vendor/ext_config/lineage_moto-holi.config
 
+# kernel permisive
+BOARD_KERNEL_SEPOLICY_PERMISSIVE := true
+
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := holi
